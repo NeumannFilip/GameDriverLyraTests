@@ -65,7 +65,7 @@ void SetPlayerViewRotation(FVector EulerRotation);
 
 In `LyraPlayerController.cpp` add:
 
-//Necessary includes to add at the top of the .cpp file
+{//Necessary includes to add at the top of the .cpp file
 #include "EnhancedInputSubsystems.h"
 #include "InputMappingContext.h"
 #include "EnhancedPlayerInput.h"
@@ -86,6 +86,7 @@ void ALyraPlayerController::TriggerActionByPath(const FString& ActionPath)
 	{
 		EIP->InjectInputForAction(LoadedInputAction, FInputActionValue(true));
 	}
+}
 }
 
 void ALyraPlayerController::SetPlayerViewRotation(FVector EulerRotation)
