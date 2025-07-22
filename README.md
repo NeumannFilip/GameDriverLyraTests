@@ -10,7 +10,7 @@ The project includes a set of smoke tests and a custom helper method designed to
 
 Smoke tests are designed to perform a quick validation of a new Lyra game build. The goal is to answer a fundamental question: "Is the build stable enough to perform further, more detailed tests?"
 
-This suite is structured using independent tests that rely on shared helper methods (`MapsToMainMenu`, `MapsToExperienceSelection`, `StartMatch`) to ensure test isolation and avoid code duplication. This best practice prevents a single failure from cascading.
+This suite is structured using independent tests that rely on shared helper methods (`MapsToMainMenu`, `MapsToExperienceSelection`, `StartMatch`) to ensure test isolation and avoid code duplication.
 
 The tests replicate and verify the usual user path in the following order:
 
