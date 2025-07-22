@@ -53,51 +53,49 @@ In order to make sure that every test works as intended, the following modificat
 2. Add custom C++ functions to `LyraPlayerController`
 	In order to  enable robust input action tests, `TriggerActionByPath` function must be added to the `LyraPlayerController`
 
-In `LyraPlayerController.h` add:
+In LyraPlayerController.h add:
 
 //Necessary for injecting input to trigger EIS
 UFUNCTION(BlueprintCallable, Category = "Automation")
-void TriggerInputActionByPath(const FString\& ActionPath, FVector Value = FVector(1.0, 0, 0));
+void TriggerInputActionByPath(const FString& ActionPath);
+
 //Necessary to determine player's rotation
 UFUNCTION(BlueprintCallable, Category = "Automation")
 void SetPlayerViewRotation(FVector EulerRotation);
 
 
-In `LyraPlayerController.cpp` add:
+In LyraPlayerController.cpp add:
 
-{//Necessary includes to add at the top of the .cpp file
+//Necessary includes to add at the top of the .cpp file
 #include "EnhancedInputSubsystems.h"
 #include "InputMappingContext.h"
 #include "EnhancedPlayerInput.h"
 #include "InputAction.h"
 
-
-void ALyraPlayerController::TriggerActionByPath(const FString& ActionPath)
+void ALyraPlayerController::TriggerInputActionByPath(const FString& ActionPath)
 {
-	UInputAction* LoadedInputAction = LoadObject<UInputAction>(nullptr, *ActionPath);
+    UInputAction* LoadedInputAction = LoadObject<UInputAction>(nullptr, *ActionPath);
 
-	if (!LoadedInputAction)
-	{
-		UE_LOG(LogTemp, Error, TEXT("Automation: Could not find InputAction at path: %s"), *ActionPath);
-		return;
-	}
+    if (!LoadedInputAction)
+    {
+        UE_LOG(LogTemp, Error, TEXT("Automation: Could not find InputAction at path: %s"), *ActionPath);
+        return;
+    }
 
-	if (UEnhancedPlayerInput* EIP = Cast<UEnhancedPlayerInput>(this->PlayerInput))
-	{
-		EIP->InjectInputForAction(LoadedInputAction, FInputActionValue(true));
-	}
-}
+    if (UEnhancedPlayerInput* EIP = Cast<UEnhancedPlayerInput>(this->PlayerInput))
+    {
+        EIP->InjectInputForAction(LoadedInputAction, FInputActionValue(true));
+    }
 }
 
 void ALyraPlayerController::SetPlayerViewRotation(FVector EulerRotation)
 {
-	//Convert FVector to FRotator
-	FRotator NewRotation = FRotator(EulerRotation.X, EulerRotation.Y, EulerRotation.Z);
-	SetControlRotation(NewRotation);
+    //Convert FVector to FRotator
+    FRotator NewRotation = FRotator(EulerRotation.X, EulerRotation.Y, EulerRotation.Z);
+    SetControlRotation(NewRotation);
 }
 
-!Recompile the Lyra Project after adding this code!
- 
+Important: Recompile the Lyra Project after adding this code!
 
 4. How to configure and run tests
 
