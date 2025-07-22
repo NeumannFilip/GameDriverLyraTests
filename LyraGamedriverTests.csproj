@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.9.0" />
+    <PackageReference Include="NUnit.Console" Version="4.0.0-beta.1" />
+    <PackageReference Include="NUnit.ConsoleRunner" Version="4.0.0-beta.1" />
+    <PackageReference Include="NUnit.Extension.NUnitProjectLoader" Version="3.8.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="gdio.agent_communications">
+      <HintPath>C:\Users\mysla\OneDrive\Desktop\GaMeDriverFiles\gdio_api\gdio.agent_communications.dll</HintPath>
+    </Reference>
+    <Reference Include="gdio.common.objects">
+      <HintPath>C:\Users\mysla\OneDrive\Desktop\GaMeDriverFiles\gdio_api\gdio.common.objects.dll</HintPath>
+    </Reference>
+    <Reference Include="gdio.plugin.serializer">
+      <HintPath>C:\Users\mysla\OneDrive\Desktop\GaMeDriverFiles\gdio_api\gdio.plugin.serializer.dll</HintPath>
+    </Reference>
+    <Reference Include="gdio.protocol.objects">
+      <HintPath>C:\Users\mysla\OneDrive\Desktop\GaMeDriverFiles\gdio_api\gdio.protocol.objects.dll</HintPath>
+    </Reference>
+    <Reference Include="gdio.unreal_api">
+      <HintPath>C:\Users\mysla\OneDrive\Desktop\GaMeDriverFiles\gdio_api\gdio.unreal_api.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagePack">
+      <HintPath>C:\Users\mysla\OneDrive\Desktop\GaMeDriverFiles\gdio_api\MessagePack.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagePack.Annotations">
+      <HintPath>C:\Users\mysla\OneDrive\Desktop\GaMeDriverFiles\gdio_api\MessagePack.Annotations.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+</Project>
